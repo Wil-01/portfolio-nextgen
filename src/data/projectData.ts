@@ -46,7 +46,7 @@ export const projectsData: Project[] = [
     description: "Réplique de Spotify avec fonctionnalités clée playlist, library, search, like et follows.",
     image: puissance4Img,
     video: puissance4Video,
-    githubLink: "https://github.com/Wil-01/tweetter",
+    githubLink: "https://github.com/Wil-01/spotify",
     demoLink: "#"
   },
   {
@@ -56,7 +56,7 @@ export const projectsData: Project[] = [
     description: "Réplique de Twitter avec fonctionnalités de tweet, retweet, like, et suivi d'utilisateurs.",
     image: twitterImg,
     video: twitterVideo,
-    githubLink: "https://github.com/Wil-01/my_twitter",
+    githubLink: "https://github.com/Wil-01/tweeter",
   },
   {
       id: 4,
@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
       description: "Site de référencement de films de streaming, inspiré de Netflix.",
       image: cinemaImg,
       video: cinemaVideo,
-      githubLink: "https://github.com/Wil-01/My_cinema",
+      githubLink: "https://github.com/Wil-01/cinema",
       demoLink: "#"
     },
     {
@@ -75,7 +75,7 @@ export const projectsData: Project[] = [
       description: "Portfolio vitrine pour une photographe, mettant en avant ses clichés avec un design épuré.",
       image: robbieImg,
       video: robbieVideo,
-      githubLink: "https://github.com/Wil-01/Portfolio_Robbie_Lens-",
+      githubLink: "https://github.com/Wil-01/Labo",
       demoLink: "#" 
     },
   {
@@ -85,7 +85,7 @@ export const projectsData: Project[] = [
     description: "Clone du site de rencontre Meetic, permettant la recherche de profils et la messagerie.",
     image: meeticImg,
     video: meeticVideo,
-    githubLink: "https://github.com/Wil-01/My_meetic",
+    githubLink: "https://github.com/Wil-01/meetic",
     demoLink: "#"
   },
   // Ajoute d'autres projets ici
