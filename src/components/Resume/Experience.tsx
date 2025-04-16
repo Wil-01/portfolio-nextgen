@@ -61,11 +61,11 @@ const timelineData: TimelineItem[] = [
   // Ajoute tes formations ici
   {
     type: 'education',
-    title: "Développeur d'Application (Licence 2 TCOM)",
+    title: "Diplôme Développeur Web Titre RNCP 5",
     subtitle: "EPITECH Paris - Web Académie",
     icon: <GraduationCap />,
     iconBg: "bg-blue-600",
-    date: "2024 - En cours",
+    date: "2024 - 2026",
     points: [
         "Formation intensive au développement web Full Stack.",
         "Projets pratiques utilisant diverses technologies front-end et back-end.",

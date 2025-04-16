@@ -68,9 +68,9 @@ const Contact: React.FC = () => {
             N'hésitez pas à m'envoyer un message !
           </p>
           <div className="space-y-4">
-            <a href="mailto:amsktn01@gmail.com" className="flex items-center gap-3 group">
+            <a href="mailto:williams.kouton-godonou@epitech.eu" className="flex items-center gap-3 group">
               <FaEnvelope className="text-primary text-xl group-hover:scale-110 transition-transform" />
-              <span className="text-dark dark:text-light group-hover:text-primary transition-colors">amsktn01@gmail.com</span>
+              <span className="text-dark dark:text-light group-hover:text-primary transition-colors">williams.kouton-godonou@epitech.eu</span>
             </a>
             <a href="tel:+33759559053" className="flex items-center gap-3 group">
               <FaPhone className="text-primary text-xl group-hover:scale-110 transition-transform" />
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
             </a>
              <div className="flex items-center gap-3">
                <FaMapMarkerAlt className="text-primary text-xl" />
-               <span className="text-dark dark:text-light">Vitry-sur-Seine, France</span>
+               <span className="text-dark dark:text-light">Ile-de-France</span>
              </div>
           </div>
           {/* Ajouter les liens vers les réseaux sociaux ici si souhaité */}
