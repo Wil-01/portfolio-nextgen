@@ -9,11 +9,11 @@ interface GithubCalendarProps {
 const CustomGithubCalendar: React.FC<GithubCalendarProps> = ({ username }) => {
   const { theme } = useTheme(); // Récupère le thème actuel
 
-  // Définir explicitement les couleurs pour les thèmes clair et sombre
-   const explicitTheme = {
-     light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'], // Couleurs GitHub light
-     dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'] // Couleurs GitHub dark
-   };
+  // Indigo palette instead of GitHub green
+  const explicitTheme = {
+    light: ['#e0e7ff', '#a5b4fc', '#818cf8', '#6366f1', '#4338ca'],
+    dark:  ['#1e1b4b', '#312e81', '#4338ca', '#6366f1', '#818cf8'],
+  };
 
 
   return (

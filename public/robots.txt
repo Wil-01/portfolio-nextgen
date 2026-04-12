@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://williams-kouton.vercel.app/sitemap.xml

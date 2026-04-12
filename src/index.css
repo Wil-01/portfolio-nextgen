@@ -1,56 +1,119 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Styles globaux additionnels si besoin */
-body {
-  @apply bg-light text-dark dark:bg-dark dark:text-light transition-colors duration-300;
-  /* Police personnalisée si besoin (à installer/importer) */
-  /* font-family: 'VotrePolice', sans-serif; */
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* compensate fixed navbar when jumping to anchor sections */
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-light text-dark/90 font-sans antialiased dark:bg-dark dark:text-light/90;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.25);
+    color: #818cf8;
+  }
+
+  /* Thin custom scrollbar */
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.35);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.65);
+  }
 }
 
+/* ─── Components ─────────────────────────────────────────────────────────── */
+@layer components {
+  /* Gradient text utility */
+  .text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle glow shadows */
+  .glow {
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.35), 0 0 64px rgba(99, 102, 241, 0.12);
+  }
+  .glow-sm {
+    box-shadow: 0 0 14px rgba(99, 102, 241, 0.25);
+  }
+
+  /* Glassmorphism card */
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/[0.08];
+  }
+  .glass-light {
+    @apply bg-black/5 backdrop-blur-xl border border-black/[0.08];
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-24 px-6 container mx-auto max-w-6xl;
+  }
+
+  /* Pill badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+}
+
+/* ─── Utilities ───────────────────────────────────────────────────────────── */
+@layer utilities {
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+}
+
+/* ─── Keyframes ───────────────────────────────────────────────────────────── */
+
+/* Wave hand */
 .wave {
-  animation-name: wave-animation;
-  animation-duration: 2.1s;
-  animation-iteration-count: infinite;
+  animation: wave-animation 2.1s infinite;
   transform-origin: 70% 70%;
   display: inline-block;
 }
-
 @keyframes wave-animation {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg);  }
+  10%  { transform: rotate(14deg); }
+  20%  { transform: rotate(-8deg); }
+  30%  { transform: rotate(14deg); }
+  40%  { transform: rotate(-4deg); }
+  50%  { transform: rotate(10deg); }
+  60%  { transform: rotate(0deg);  }
+  100% { transform: rotate(0deg);  }
 }
 
+/* Horizontal ticker scroll */
 @keyframes scroll-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    /* Déplace d'exactement la moitié de la largeur (une seule liste) */
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-
-/* Classe utilitaire pour appliquer l'animation */
 .animate-scroll-x {
-  /* Ajuste la durée (40s ici) pour contrôler la vitesse */
   animation: scroll-x 40s linear infinite;
 }
-
-/* Conteneur parent qui met en pause au survol */
 .scroll-container:hover .animate-scroll-x {
   animation-play-state: paused;
 }
 
-/* Optionnel: adoucir légèrement le début/fin de la pause */
-.animate-scroll-x {
-    transition: animation-play-state 0.3s ease-in-out;
+/* Spinning gradient ring (photo border) */
+@keyframes spin-ring {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-ring {
+  animation: spin-ring 6s linear infinite;
 }
