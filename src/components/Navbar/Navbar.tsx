@@ -1,86 +1,184 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importer Link pour la navigation
-import { useTheme } from '../Theme/ThemeContext'; // Pour accéder au thème si besoin plus tard
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sun, Moon, Menu, X, Github } from 'lucide-react';
+import { useTheme } from '../Theme/ThemeContext';
 
+/* ─── Data ───────────────────────────────────────────────────────────────── */
+const navLinks = [
+  { name: 'Accueil',  id: 'accueil'  },
+  { name: 'À propos', id: 'about'    },
+  { name: 'Projets',  id: 'projets'  },
+  { name: 'Parcours', id: 'parcours' },
+  { name: 'Contact',  id: 'contact'  },
+];
+
+/* ─── Smooth scroll helper (uses Lenis when available) ───────────────────── */
+export const scrollToSection = (id: string, offset = -80) => {
+  const lenis = (window as any).__lenis;
+  if (lenis) {
+    lenis.scrollTo(`#${id}`, { offset, duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+  } else {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY + offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+};
+
+/* ─── Component ─────────────────────────────────────────────────────────── */
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  // const { theme } = useTheme(); // Si on veut adapter des styles au thème
+  const [isOpen,        setIsOpen]        = useState(false);
+  const [scrolled,      setScrolled]      = useState(false);
+  const [activeSection, setActiveSection] = useState('accueil');
+  const { theme, toggleTheme }            = useTheme();
 
-  // Liens de navigation (à adapter selon tes pages finales)
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Resume', path: '/resume' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  /* Glassmorphism trigger */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  /* Scroll spy – highlights the section currently in view */
+  useEffect(() => {
+    const ids = navLinks.map(l => l.id);
+    const detect = () => {
+      const offset = window.innerHeight * 0.35;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= offset) current = id;
+      }
+      setActiveSection(current);
+    };
+    window.addEventListener('scroll', detect, { passive: true });
+    detect();
+    return () => window.removeEventListener('scroll', detect);
+  }, []);
+
+  const handleClick = (id: string) => {
+    scrollToSection(id);
+    setIsOpen(false);
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 py-4 px-6 bg-light/80 dark:bg-dark/80 backdrop-blur-md shadow-sm transition-colors duration-300">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo ou Nom */}
-        <Link to="/" className="text-xl font-bold text-dark dark:text-light">
-          WKG <span className="text-primary">.</span> {/* Ton logo/nom */}
-        </Link>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'py-3 bg-light/90 dark:bg-dark/85 backdrop-blur-2xl border-b border-black/[0.06] dark:border-white/[0.06] shadow-lg shadow-black/[0.06] dark:shadow-black/30'
+          : 'py-5 bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto max-w-6xl px-6 flex justify-between items-center">
 
-        {/* Liens Desktop */}
-        <div className="hidden md:flex space-x-6">
+        {/* ── Logo ── */}
+        <button
+          onClick={() => handleClick('accueil')}
+          className="flex items-center gap-0.5 text-xl font-black tracking-tight"
+        >
+          <span className="text-gradient">WKG</span>
+          <span className="text-primary text-2xl leading-none">.</span>
+        </button>
+
+        {/* ── Desktop links ── */}
+        <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className="text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-200"
+            <button
+              key={link.id}
+              onClick={() => handleClick(link.id)}
+              className={`relative text-sm font-medium transition-colors duration-200 group ${
+                activeSection === link.id
+                  ? 'text-primary-light'
+                  : 'text-dark/50 dark:text-light/50 hover:text-dark/90 dark:hover:text-light/90'
+              }`}
             >
               {link.name}
-            </Link>
+              <span
+                className={`absolute -bottom-1 left-0 h-[2px] rounded-full bg-primary transition-all duration-300 ${
+                  activeSection === link.id ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}
+              />
+            </button>
           ))}
-          {/* Lien GitHub (comme avant) */}
-          <a
-            href="https://github.com/Wil-01/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors duration-200"
-          >
-             GH {/* Icône à ajouter */}
-          </a>
         </div>
 
-        {/* Bouton Burger Mobile */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-dark dark:text-light focus:outline-none"
-        >
-          {/* Icône Burger (simple pour l'instant) */}
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-          </svg>
-        </button>
+        {/* ── Desktop actions ── */}
+        <div className="hidden md:flex items-center gap-2">
+          <a
+            href="https://github.com/Wil-01"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="p-2 rounded-lg text-dark/45 dark:text-light/45 hover:text-dark/90 dark:hover:text-light/90 hover:bg-black/[0.06] dark:hover:bg-white/[0.06] transition-all duration-200"
+          >
+            <Github size={17} />
+          </a>
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
+            className="p-2 rounded-lg text-dark/45 dark:text-light/45 hover:text-dark/90 dark:hover:text-light/90 hover:bg-black/[0.06] dark:hover:bg-white/[0.06] transition-all duration-200"
+          >
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+        </div>
+
+        {/* ── Mobile actions ── */}
+        <div className="md:hidden flex items-center gap-1">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-lg text-dark/45 dark:text-light/45 hover:bg-black/[0.06] dark:hover:bg-white/[0.06] transition-all duration-200"
+          >
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={isOpen}
+            className="p-2 rounded-lg text-dark/45 dark:text-light/45 hover:bg-black/[0.06] dark:hover:bg-white/[0.06] transition-all duration-200"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
-      {/* Menu Mobile (apparaît si isOpen) */}
-      {isOpen && (
-        <div className="md:hidden mt-4 flex flex-col space-y-2 items-center">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className="block px-4 py-2 text-dark dark:text-light hover:bg-primary/10 rounded"
-              onClick={() => setIsOpen(false)} // Ferme le menu au clic
-            >
-              {link.name}
-            </Link>
-          ))}
-           <a
-            href="https://github.com/Wil-01/"
-            target="_blank"
-            rel="noopener noreferrer"
-             className="block px-4 py-2 text-dark dark:text-light hover:bg-primary/10 rounded"
-             onClick={() => setIsOpen(false)}
+      {/* ── Mobile menu ── */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden bg-light/95 dark:bg-dark/95 backdrop-blur-2xl border-b border-black/[0.06] dark:border-white/[0.06]"
           >
-             GitHub {/* Icône à ajouter */}
-          </a>
-        </div>
-      )}
+            <div className="container mx-auto max-w-6xl px-6 py-3 flex flex-col gap-0.5">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => handleClick(link.id)}
+                  className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    activeSection === link.id
+                      ? 'text-primary dark:text-primary-light bg-primary/10'
+                      : 'text-dark/55 dark:text-light/55 hover:text-dark/90 dark:hover:text-light/90 hover:bg-black/[0.05] dark:hover:bg-white/[0.05]'
+                  }`}
+                >
+                  {link.name}
+                </button>
+              ))}
+              <a
+                href="https://github.com/Wil-01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium text-dark/55 dark:text-light/55 hover:text-dark/90 dark:hover:text-light/90 hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-all duration-200"
+              >
+                <Github size={15} />
+                GitHub
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
