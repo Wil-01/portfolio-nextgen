@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import { ArrowRight, Download, Mail, Github, Linkedin, MapPin } from 'lucide-react';
 import { scrollToSection } from '../components/Navbar/Navbar';
-import avatarImg from '../Assets/amss.jpeg';
+import avatarImg from '../Assets/img1.jpeg';
 import cvFile from '../Assets/williams.pdf';
 
 /* ─── Variants ──────────────────────────────────────────────────────────── */
@@ -154,29 +154,16 @@ const Hero: React.FC = () => {
 
           {/* ─── Right ─── */}
           <motion.div variants={fadeIn} className="order-1 lg:order-2 flex flex-col items-center gap-5">
-            {/* Spinning ring photo */}
+            {/* Photo */}
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-primary blur-2xl opacity-20 scale-110" />
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
-                {/* Conic gradient ring */}
-                <div
-                  className="absolute inset-0 rounded-full spin-ring"
-                  style={{
-                    background: 'conic-gradient(from 0deg, #6366f1, #8b5cf6, #a78bfa, transparent 60%, transparent 80%, #6366f1)',
-                    padding: '3px',
-                  }}
-                >
-                  <div className="w-full h-full rounded-full bg-light dark:bg-dark" />
-                </div>
-                {/* Photo */}
-                <motion.img
-                  src={avatarImg}
-                  alt="Williams KOUTON GODONOU"
-                  className="absolute inset-[4px] w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full object-cover object-top"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                />
-              </div>
+              <div className="absolute inset-0 rounded-3xl bg-gradient-primary blur-2xl opacity-15 scale-105" />
+              <motion.img
+                src={avatarImg}
+                alt="Williams KOUTON GODONOU"
+                className="relative w-64 sm:w-72 lg:w-80 rounded-3xl object-cover object-top shadow-2xl ring-1 ring-primary/20"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              />
             </div>
 
             {/* Info pills */}
