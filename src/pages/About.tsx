@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Target, Code2, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import laptopImg from '../Assets/img2.jpeg';
+import laptopImg from '../Assets/img3.jpeg';
 import GithubCalendar from '../components/About/GithubCalendar';
 import { useSkillCategories } from '../hooks/usePortfolioData';
 
