@@ -1,11 +1,13 @@
-import promotionImg from '../Assets/Projects/promotion.png';
-import scrappingImg  from '../Assets/Projects/scrapping.png';
-import gomuscuImg    from '../Assets/Projects/gomuscu.png';
-import eventImg    from '../Assets/Projects/event.png';
-import eventVideo  from '../Assets/Projects/event.webm';
-import twitterImg  from '../Assets/Projects/twitter.png';
+import alfredImg    from '../Assets/Projects/Alfred.png';
+import gomuscuImg   from '../Assets/Projects/gomuscu_image.png';
+import gomuscuVideo from '../Assets/Projects/gomuscu_vid.mp4';
+import gmvEngineImg from '../Assets/Projects/gmvengine.png';
+import gmvEngineVideo from '../Assets/Projects/gmv_engine_vid.mp4';
+import eventImg     from '../Assets/Projects/event.png';
+import eventVideo   from '../Assets/Projects/event.webm';
+import twitterImg   from '../Assets/Projects/twitter.png';
 import twitterVideo from '../Assets/Projects/twe.webm';
-import spotifyImg  from '../Assets/Projects/spotify.png';
+import spotifyImg   from '../Assets/Projects/spotify.png';
 import spotifyVideo from '../Assets/Projects/spotify.webm';
 
 
@@ -35,59 +37,37 @@ export const projectsData: Project[] = [
   {
     id:       1,
     category: 'professionnel',
-    title:    'Gestion des promotions & commissions',
+    title:    'Alfred Meeting — Alternance',
     company:  'Alfred Meeting',
-    stack:    ['Laravel', 'PHP', 'MySQL', 'Blade', 'JavaScript'],
+    stack:    ['Laravel', 'PHP', 'MySQL', 'Blade', 'JavaScript', 'Python'],
     description:
-      "Évolution d'une fonctionnalité métier liée aux promotions et commissions dans l'espace partenaire — affichage, historique, droits et UX.",
-    image:    promotionImg,
-    gradient: 'linear-gradient(135deg, #6366f1 0%, #4338ca 100%)',
+      "Alternance sur une plateforme B2B événementielle : évolution de fonctionnalités métier, pipeline de données, interfaces CRM et amélioration continue sur un codebase réel.",
+    image:    alfredImg,
+    gradient: 'linear-gradient(135deg, #6366f1 0%, #0ea5e9 100%)',
     axes:     ['cadrage', 'développement', 'qualité'],
     context:
-      "Alternance chez Alfred Meeting — plateforme B2B événementielle. L'espace partenaire gérait des règles de commissions et promotions manquant de clarté côté utilisateur, avec des incohérences d'affichage selon les profils.",
+      "Alfred Meeting est une plateforme événementielle B2B. En alternance, j'ai travaillé sur l'évolution de fonctionnalités existantes, l'enrichissement de données catalogue, l'espace partenaire et diverses interfaces d'administration.",
     whatIDid: [
-      "Analyse des règles métier existantes et des retours utilisateurs",
-      "Adaptation des vues Blade et de la logique d'affichage selon les rôles",
-      "Amélioration de l'historique des promotions et de la cohérence d'interface",
-      "Gestion des droits d'accès et restrictions selon le profil partenaire",
-      "Prise en compte des feedbacks UX de l'équipe et tests de validation",
+      "Évolution de la gestion des promotions et commissions : logique d'affichage, historique, droits d'accès selon le profil partenaire",
+      "Développement et amélioration de scrapers pour enrichir le catalogue de lieux (parsing, normalisation, déduplication, mapping métier)",
+      "Amélioration d'interfaces CRM et espace partenaire : UX, cohérence, corrections et refactorisations",
+      "Travail sur la logique métier back-end et la maintenabilité du code existant",
+      "Prise en compte des retours d'équipe et amélioration continue de la qualité",
     ],
     learned:
-      "Travailler sur un existant avec des contraintes métier fortes m'a appris à bien lire le code legacy, anticiper les impacts d'une modification et raisonner en termes d'usage réel avant d'implémenter.",
-  },
-  {
-    id:       2,
-    category: 'professionnel',
-    title:    'Scraping & enrichissement catalogue',
-    company:  'Alfred Meeting',
-    stack:    ['PHP', 'Laravel', 'MySQL', 'Python', 'BeautifulSoup'],
-    description:
-      "Développement et amélioration de flux de scraping pour enrichir le catalogue de lieux partenaires avec des données hétérogènes.",
-    image:    scrappingImg,
-    gradient: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%)',
-    axes:     ['cadrage', 'développement', 'qualité'],
-    context:
-      "Le catalogue de lieux d'Alfred Meeting nécessitait un enrichissement depuis plusieurs sources web. Les données récupérées étaient hétérogènes et devaient être normalisées avant intégration en base.",
-    whatIDid: [
-      "Conception du flux : indexation, scraping, parsing, structuration",
-      "Développement des scrapers adaptés aux différentes sources cibles",
-      "Normalisation, déduplication et mapping des champs métier",
-      "Gestion des statuts de suivi et robustesse face aux erreurs de structure",
-      "Documentation du processus et amélioration continue de la qualité des données",
-    ],
-    learned:
-      "Ce projet m'a montré la complexité d'un vrai pipeline de données : la qualité en entrée est aussi importante que le code, et la robustesse face aux erreurs de structure est indispensable en production.",
+      "L'alternance m'a confronté aux vraies contraintes d'un codebase en production : lire un existant complexe, anticiper les impacts d'une modification, raisonner en termes d'usage réel et de qualité avant d'implémenter.",
   },
 
-  /* ── 3 · PERSONNEL ───────────────────────────────────────────────── */
+  /* ── 2-3 · PERSONNEL ────────────────────────────────────────────── */
   {
-    id:       3,
+    id:       2,
     category: 'personnel',
     title:    'Gomuscu — Application fitness',
     stack:    ['React', 'TypeScript', 'Laravel', 'PostgreSQL', 'Figma'],
     description:
       "Conception d'une application orientée fitness/coaching pensée comme un produit numérique — vision produit, UX, architecture et stack.",
     image:    gomuscuImg,
+    video:    gomuscuVideo,
     gradient: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
     axes:     ['cadrage', 'développement'],
     context:
@@ -102,11 +82,34 @@ export const projectsData: Project[] = [
     learned:
       "Penser un produit avant de coder change la qualité des décisions techniques. Confronter besoin, contraintes et architecture dès le départ évite beaucoup de refactoring.",
   },
+  {
+    id:       3,
+    category: 'personnel',
+    title:    'GMV Engine — SaaS TikTok Shop',
+    stack:    ['NestJS', 'Next.js 14', 'PostgreSQL', 'Prisma', 'BullMQ', 'Redis', 'OpenRouter', 'Stripe', 'Apify', 'HeyGen'],
+    description:
+      "SaaS multi-tenant pour créateurs TikTok Shop FR : pipeline complet de découverte de produits viraux, analyse IA, génération de campagnes et vidéos UGC prêtes à poster.",
+    image:    gmvEngineImg,
+    video:    gmvEngineVideo,
+    gradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
+    axes:     ['cadrage', 'développement'],
+    context:
+      "Projet personnel — automatiser le workflow complet d'un créateur TikTok Shop : scraper les produits viraux, analyser avec un LLM, générer les scripts de campagne et produire des vidéos UGC via avatar IA.",
+    whatIDid: [
+      "Architecture NestJS + Prisma avec multi-tenant : organisations, memberships et quotas IA par plan",
+      "Pipeline de jobs asynchrones BullMQ/Redis : scraping Apify → analyse OpenRouter → génération vidéo HeyGen",
+      "Frontend Next.js 14 App Router : dashboard de suivi, gestion des campagnes et bibliothèque produits",
+      "Intégration Stripe complète : checkout, portail client et système de top-up de crédits",
+      "Authentification JWT/Passport et gestion des permissions par rôle au sein des organisations",
+    ],
+    learned:
+      "Construire un SaaS de bout en bout m'a confronté à des problématiques réelles : orchestration de jobs IA asynchrones, gestion des quotas et facturation, multi-tenancy et fiabilité d'un pipeline de données complet.",
+  },
 
-  /* ── 4-6 · ACADÉMIQUE ────────────────────────────────────────────── */
+  /* ── 4-6 · ACADÉMIQUE + PERSONNEL ───────────────────────────────── */
   {
     id:        4,
-    category:  'académique',
+    category:  'personnel',
     title:     'EVENT — Application événementiel',
     stack:     ['Python', 'PostgreSQL', 'Tailwind CSS', 'Django'],
     description:
@@ -117,7 +120,7 @@ export const projectsData: Project[] = [
     gradient:  'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
     axes:      ['cadrage', 'développement'],
     context:
-      "Projet académique Web@cadémie — concevoir et développer une application de gestion d'événements full stack avec des fonctionnalités complètes : inscription, paiement, admin.",
+      "Projet personnel — concevoir et développer une application de gestion d'événements full stack avec des fonctionnalités complètes : inscription, paiement, admin.",
     whatIDid: [
       "Conception de l'architecture applicative et de la base de données",
       "Développement back-end avec Django et PostgreSQL",
