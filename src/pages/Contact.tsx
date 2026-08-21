@@ -127,8 +127,9 @@ const Contact: React.FC = () => {
                 Parlons de votre projet
               </h3>
               <p className="text-sm text-dark/60 dark:text-light/50 leading-relaxed">
-                Développeur Web Full Stack en alternance chez Alfred Meeting, je suis ouvert aux
-                échanges sur des projets web, des opportunités d&rsquo;alternance ou des collaborations.
+                Développeur Web Full Stack en recherche d&rsquo;alternance à partir de septembre 2026,
+                également ouvert à un CDI, un CDD ou une mission freelance. N&rsquo;hésitez pas à
+                me contacter pour un poste, un projet ou une collaboration.
               </p>
             </div>
 

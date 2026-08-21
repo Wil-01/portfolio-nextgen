@@ -106,21 +106,22 @@ export const projectsData: Project[] = [
       "Construire un SaaS de bout en bout m'a confronté à des problématiques réelles : orchestration de jobs IA asynchrones, gestion des quotas et facturation, multi-tenancy et fiabilité d'un pipeline de données complet.",
   },
 
-  /* ── 4-6 · ACADÉMIQUE + PERSONNEL ───────────────────────────────── */
+  /* ── 4 · PROFESSIONNEL ──────────────────────────────────────────── */
   {
     id:        4,
-    category:  'personnel',
+    category:  'professionnel',
     title:     'EVENT — Application événementiel',
+    company:   'Hélice',
     stack:     ['Python', 'PostgreSQL', 'Tailwind CSS', 'Django'],
     description:
-      "Application événementielle full stack avec gestion des inscriptions, paiement en ligne et interface d'administration.",
+      "Application événementielle full stack avec gestion des inscriptions, paiement en ligne et interface d'administration, développée pour Hélice.",
     image:     eventImg,
     video:     eventVideo,
     githubLink:'https://github.com/Wil-01',
     gradient:  'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
     axes:      ['cadrage', 'développement'],
     context:
-      "Projet personnel — concevoir et développer une application de gestion d'événements full stack avec des fonctionnalités complètes : inscription, paiement, admin.",
+      "Projet professionnel réalisé chez Hélice — concevoir et développer une application de gestion d'événements full stack avec des fonctionnalités complètes : inscription, paiement, admin.",
     whatIDid: [
       "Conception de l'architecture applicative et de la base de données",
       "Développement back-end avec Django et PostgreSQL",
@@ -131,6 +132,7 @@ export const projectsData: Project[] = [
     learned:
       "Ce projet m'a permis de maîtriser le cycle complet de développement, de la conception à la mise en production, en gérant à la fois la logique métier et l'expérience utilisateur.",
   },
+  /* ── 5-6 · ACADÉMIQUE ───────────────────────────────────────────── */
   {
     id:        5,
     category:  'académique',

@@ -86,9 +86,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 <button
                   onClick={onClose}
                   aria-label="Fermer"
-                  className="p-1.5 rounded-lg text-dark/45 dark:text-light/35
+                  className="p-1.5 rounded-lg text-dark/70 dark:text-light/70
+                             bg-dark-card/80 dark:bg-dark-card/80 bg-light-card/80
+                             border border-dark-border dark:border-dark-border border-light-border
                              hover:text-dark/90 dark:hover:text-light/90
-                             hover:bg-dark-card dark:hover:bg-dark-card bg-light-card
+                             hover:bg-dark-card dark:hover:bg-dark-card
                              transition-all duration-200"
                 >
                   <X size={18} />

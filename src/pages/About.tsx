@@ -25,19 +25,24 @@ const characteristics = [
 
 const evolution = [
   {
-    period: '2024',
-    title: 'Intégration des bases',
-    description: 'Premiers projets web, apprentissage des langages, logique applicative et premières bases de données.',
+    period: '2021 – 2023',
+    title: 'Premiers pas',
+    description: 'Apprentissage autodidacte du développement web dès 2021, Licence TCOM à l’Institut CERCO et premières expériences professionnelles.',
   },
   {
-    period: '2024 – 2025',
+    period: '2023 – 2024',
     title: 'Montée en complexité',
-    description: 'Projets full stack avec authentification, déploiement, architectures plus structurées et stacks variées.',
+    description: 'Développeur Python (Hélice, CED Consult), spécialisations Python & IBM Full Stack, Piscine 42 : projets plus structurés et stacks variées.',
   },
   {
-    period: '2025 – 2026',
-    title: 'Environnement professionnel',
-    description: 'Alternance chez Alfred Meeting : codebase réel, logique métier, qualité, maintenabilité et amélioration continue.',
+    period: '2024 – 2026',
+    title: 'Formation intensive & entreprise',
+    description: 'Titre RNCP Développeur Web à la Web@cadémie et alternance chez Alfred Meeting : codebase réel, logique métier, qualité et amélioration continue.',
+  },
+  {
+    period: '2026 – 2027',
+    title: 'Nouvelle étape',
+    description: 'Bachelor 3 Développement Full Stack à l’IPSSI, en recherche d’une nouvelle alternance à partir de septembre 2026.',
   },
 ];
 
@@ -92,13 +97,13 @@ const staticSkillCategories = [
   },
   {
     label: 'Front-End',
-    skills: ['HTML / CSS', 'JavaScript', 'React', 'Bootstrap', 'Tailwind CSS', 'Blade', 'Responsive design'],
+    skills: ['HTML / CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Bootstrap', 'Tailwind CSS', 'Blade', 'Responsive design'],
     badgeCls: 'bg-cyan-500/[0.08] text-cyan-400 border border-cyan-500/[0.18]',
     headCls:  'text-cyan-400',
   },
   {
     label: 'Back-End',
-    skills: ['PHP', 'Laravel', 'Eloquent ORM', 'MySQL', 'PostgreSQL', 'API REST', 'Auth & permissions', 'Logique métier'],
+    skills: ['PHP', 'Laravel', 'Eloquent ORM', 'Nest.js', 'MySQL', 'PostgreSQL', 'API REST', 'Auth & permissions', 'Logique métier'],
     badgeCls: 'bg-violet-500/[0.08] text-violet-400 border border-violet-500/[0.18]',
     headCls:  'text-violet-400',
   },
@@ -107,6 +112,12 @@ const staticSkillCategories = [
     skills: ['Scraping web', 'Parsing de données', 'Normalisation', 'Import / Export', 'Déduplication', 'Structuration JSON'],
     badgeCls: 'bg-amber-500/[0.08] text-amber-400 border border-amber-500/[0.18]',
     headCls:  'text-amber-400',
+  },
+  {
+    label: 'IA & Prompt Engineering',
+    skills: ['Claude', 'ChatGPT', 'Prompt Engineering', 'Assistance au code IA'],
+    badgeCls: 'bg-pink-500/[0.08] text-pink-400 border border-pink-500/[0.18]',
+    headCls:  'text-pink-400',
   },
   {
     label: 'Qualité & Livraison',
@@ -195,10 +206,12 @@ const About: React.FC = () => {
           {/* Text */}
           <motion.div variants={fadeUp}>
             <p className="text-base text-dark/70 dark:text-light/60 leading-relaxed mb-5">
-              Je suis développeur web full stack, actuellement en alternance chez{' '}
-              <span className="font-semibold text-dark/90 dark:text-light/90">Alfred Meeting</span>.
-              Au cours de ma formation, j&rsquo;ai travaillé sur des projets académiques, personnels
-              et professionnels avec différentes stacks et différents niveaux de complexité.
+              Je suis développeur web full stack, actuellement en Bachelor 3 à l&rsquo;IPSSI et{' '}
+              <span className="font-semibold text-dark/90 dark:text-light/90">en recherche d&rsquo;alternance</span>{' '}
+              à partir de septembre 2026 — également ouvert à un CDI, un CDD ou une mission
+              freelance. Au cours de ma formation, j&rsquo;ai travaillé sur des
+              projets académiques, personnels et professionnels — dont une première alternance
+              chez Alfred Meeting — avec différentes stacks et différents niveaux de complexité.
             </p>
             <p className="text-base text-dark/70 dark:text-light/60 leading-relaxed mb-5">
               Ce parcours m&rsquo;a permis de développer une vision plus complète du métier :
@@ -243,9 +256,9 @@ const About: React.FC = () => {
           <SubHead>
             Mon <span className="text-gradient">évolution</span>
           </SubHead>
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Connecting line (desktop) */}
-            <div className="hidden md:block absolute top-9 left-[calc(33%+1rem)] right-[calc(33%+1rem)] h-px bg-dark-border dark:bg-dark-border bg-light-border z-0" />
+            <div className="hidden lg:block absolute top-9 left-[calc(12.5%+1rem)] right-[calc(12.5%+1rem)] h-px bg-dark-border dark:bg-dark-border bg-light-border z-0" />
 
             {evolution.map((step, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center text-center p-6 rounded-2xl bg-dark-card/50 dark:bg-dark-card/50 bg-light-card/70 border border-dark-border dark:border-dark-border border-light-border">

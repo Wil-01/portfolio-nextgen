@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, GraduationCap, Download, MapPin, Calendar } from 'lucide-react';
-import cvFile from '../Assets/williams.pdf';
+import cvFile from '../Assets/Williams_KOUTON_GODONOU.pdf';
 import { useExperiences } from '../hooks/usePortfolioData';
 import { DbExperience } from '../types/admin';
 
@@ -34,8 +34,7 @@ function dbToTimeline(e: DbExperience): TimelineEntry {
 const staticExperiences: TimelineEntry[] = [
   {
     type:         'experience',
-    period:       'Sept. 2025 → Aujourd\'hui',
-    current:      true,
+    period:       'Sept. 2025 → Juil. 2026 · 11 mois',
     title:        'Développeur Web Full Stack — Alternance',
     organization: 'Alfred Meeting',
     location:     'Paris, Île-de-France',
@@ -50,10 +49,11 @@ const staticExperiences: TimelineEntry[] = [
   },
   {
     type:         'experience',
-    period:       'Août 2023 → Mars 2025 · 1 an 7 mois',
+    period:       'Août 2023 → Aujourd\'hui',
+    current:      true,
     title:        'Développeur Python',
     organization: 'Hélice',
-    location:     'Cotonou, Bénin',
+    location:     'Cotonou, Bénin · full remote',
     points: [
       "Conception et développement de solutions web, logicielles et backend",
       "Intégration du web scraping pour l'extraction et le traitement de données",
@@ -73,6 +73,17 @@ const staticExperiences: TimelineEntry[] = [
       "Résolution de problèmes techniques liés aux projets clients",
     ],
     tags: ['Python', 'Pandas', 'NumPy', 'Automatisation'],
+  },
+  {
+    type:         'experience',
+    period:       'Mai 2024 → Août 2024 · 4 mois',
+    title:        'Développeur Full-Stack',
+    organization: 'Toastmasters International',
+    location:     'Cotonou, Bénin',
+    points: [
+      "Développement d'un site web de trombinoscope pour centraliser et organiser les informations des employés d'une entreprise",
+    ],
+    tags: ['JavaScript', 'PHP', 'HTML/CSS'],
   },
   {
     type:         'experience',
@@ -103,8 +114,20 @@ const staticExperiences: TimelineEntry[] = [
 const staticFormations: TimelineEntry[] = [
   {
     type:         'education',
-    period:       'Sept. 2024 → Juin 2026',
+    period:       '2026 → 2027',
     current:      true,
+    title:        'Bachelor 3 — Développement Applications & Full Stack',
+    organization: 'IPSSI',
+    location:     'Bac+3',
+    points: [
+      "Approfondissement des compétences full stack après le Titre RNCP",
+      "Recherche d'une alternance pour accompagner cette année de formation",
+    ],
+    tags: ['React', 'Next.js', 'Node.js', 'PHP'],
+  },
+  {
+    type:         'education',
+    period:       'Sept. 2024 → Juin 2026',
     title:        'Titre RNCP — Développeur Web Full Stack (Niv. 5)',
     organization: 'Web@cadémie · Epitech Paris',
     location:     'Paris',
@@ -164,8 +187,28 @@ const staticFormations: TimelineEntry[] = [
   },
   {
     type:         'education',
-    period:       '2021 – 2024',
-    title:        'Autodidacte — Développement web',
+    period:       '2024',
+    title:        'Certification Prompt Engineering',
+    organization: 'OpenClassrooms',
+    points: [
+      "Conception de prompts efficaces et usage des IA génératives (Claude, ChatGPT) en développement",
+    ],
+    tags: ['Claude', 'ChatGPT', 'Prompt Engineering'],
+  },
+  {
+    type:         'education',
+    period:       '2023',
+    title:        'Certification Python',
+    organization: 'OpenClassrooms',
+    points: [
+      "Fondamentaux du langage Python et bonnes pratiques de développement",
+    ],
+    tags: ['Python'],
+  },
+  {
+    type:         'education',
+    period:       '2021 – 2025',
+    title:        'Autodidacte — Développement web, algorithmes, mobile, IA',
     organization: 'OpenClassrooms · Coursera',
     points: [
       "Apprentissage continu : web, algorithmes, bases de données",
@@ -177,8 +220,8 @@ const staticFormations: TimelineEntry[] = [
 
 /* ─── Stat card ──────────────────────────────────────────────────────────── */
 const stats = [
-  { value: '5',      label: 'expériences pro'       },
-  { value: '2 ans',  label: 'de formation intensive' },
+  { value: '6',      label: 'expériences pro'       },
+  { value: '4 ans',  label: 'de formation intensive' },
   { value: '6',      label: 'projets sélectionnés'   },
   { value: '3',      label: 'axes de compétences'    },
 ];

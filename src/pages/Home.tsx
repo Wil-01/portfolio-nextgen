@@ -4,7 +4,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import { ArrowRight, Download, Mail, Github, Linkedin, MapPin } from 'lucide-react';
 import { scrollToSection } from '../components/Navbar/Navbar';
 import avatarImg from '../Assets/img1.jpeg';
-import cvFile from '../Assets/williams.pdf';
+import cvFile from '../Assets/Williams_KOUTON_GODONOU.pdf';
 
 /* ─── Variants ──────────────────────────────────────────────────────────── */
 const container = {
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
             <motion.div variants={fadeUp} className="mb-6">
               <span className="badge bg-primary/10 text-primary dark:text-primary-light border border-primary/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                En alternance · Alfred Meeting
+                En recherche d&rsquo;alternance
               </span>
             </motion.div>
 
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
             <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight leading-[1.05] mb-3">
               <span className="text-dark dark:text-light">Williams</span>
               <br />
-              <span className="text-gradient">KOUTON</span>
+              <span className="text-gradient">KOUTON GODONOU</span>
             </motion.h1>
 
             {/* Title + Typewriter */}
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
                 Développeur Web{' '}
                 <span className="text-primary dark:text-primary-light">
                   <Typewriter
-                    words={['Full Stack', 'Front-End', 'Back-End Laravel', 'orienté produit']}
+                    words={['Full Stack', 'Front-End', 'Back-End', 'orienté produit']}
                     loop={0}
                     cursor
                     cursorStyle="|"
@@ -101,10 +101,12 @@ const Hero: React.FC = () => {
             {/* Bio */}
             <motion.p variants={fadeUp} className="text-base text-dark/60 dark:text-light/50 leading-relaxed max-w-lg mb-8">
               Je conçois, développe et fais évoluer des solutions web utiles, robustes
-              et orientées métier. Actuellement en alternance chez{' '}
-              <span className="text-dark/80 dark:text-light/70 font-medium">Alfred Meeting</span>,
-              je travaille sur des applications web concrètes, des outils métier et des
-              problématiques de données et d&rsquo;amélioration continue.
+              et orientées métier. En alternance chez{' '}
+              <span className="text-dark/80 dark:text-light/70 font-medium">Alfred Meeting</span>{' '}
+              jusqu&rsquo;en 2026, j&rsquo;y ai travaillé sur des applications web concrètes,
+              des outils métier et des problématiques de données. Je poursuis aujourd&rsquo;hui
+              en Bachelor 3 et recherche une nouvelle alternance à partir de septembre 2026 —
+              je reste également ouvert à un CDI, un CDD ou une mission freelance.
             </motion.p>
 
             {/* CTAs */}
@@ -174,7 +176,10 @@ const Hero: React.FC = () => {
               </div>
               <div className="bg-black/[0.06] dark:bg-white/[0.06] backdrop-blur-xl border border-black/[0.08] dark:border-white/[0.08] flex items-center gap-2 px-3.5 py-2 rounded-xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                <span className="text-xs font-medium text-dark/65 dark:text-light/55">Alternant · Ouvert aux opportunités</span>
+                <span className="text-xs font-medium text-dark/65 dark:text-light/55">En recherche d&rsquo;alternance</span>
+              </div>
+              <div className="bg-black/[0.06] dark:bg-white/[0.06] backdrop-blur-xl border border-black/[0.08] dark:border-white/[0.08] flex items-center gap-2 px-3.5 py-2 rounded-xl">
+                <span className="text-xs font-medium text-dark/65 dark:text-light/55">Ouvert au CDI · CDD · Freelance</span>
               </div>
             </div>
           </motion.div>
