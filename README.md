@@ -1,54 +1,37 @@
-# React + TypeScript + Vite
+# Portfolio — Williams KOUTON GODONOU
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio one page de validation du titre Web@cadémie, avec un espace d'administration.
+En ligne : https://williams-dev.vercel.app
 
-Currently, two official plugins are available:
+**Stack :** React 19, TypeScript, Vite, Tailwind CSS, Supabase (PostgreSQL, Auth, Storage), EmailJS, Vercel.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Démarrer
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+cp .env.example .env   # renseigner les clés EmailJS et Supabase
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Sans Supabase, le site public s'affiche avec son contenu statique de secours.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Commandes
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+| Commande | Rôle |
+| --- | --- |
+| `npm run dev` | Serveur de développement |
+| `npm run build` | Vérification TypeScript et build de production |
+| `npm test` | Tests unitaires et d'intégration (Vitest) |
+| `npm run test:coverage` | Tests avec couverture |
+| `npm run lint` | ESLint |
+| `npm run monitor` | Contrôle de disponibilité de la production (`-- --log` pour journaliser) |
+
+## Base de données
+
+Exécuter `supabase-schema.sql` dans l'éditeur SQL de Supabase, créer le compte administrateur,
+puis désactiver les inscriptions publiques : les règles RLS autorisent l'écriture à tout utilisateur authentifié.
+
+## Tests
+
+Deux tests `it.fails` documentent des anomalies connues (A-01, A-02).
+Ils passeront au rouge dès la correction : il suffira alors de retirer `.fails`.
