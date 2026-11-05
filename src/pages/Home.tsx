@@ -4,7 +4,6 @@ import { Typewriter } from 'react-simple-typewriter';
 import { ArrowRight, Download, Mail, Github, Linkedin, MapPin } from 'lucide-react';
 import { scrollToSection } from '../components/Navbar/Navbar';
 import avatarImg from '../Assets/img1.jpeg';
-import cvFile from '../Assets/Williams_KOUTON_GODONOU.pdf';
 
 /* ─── Variants ──────────────────────────────────────────────────────────── */
 const container = {
@@ -119,7 +118,7 @@ const Hero: React.FC = () => {
                 <ArrowRight size={16} />
               </button>
               <a
-                href={cvFile}
+                href="/cv.pdf"
                 download="CV_Williams_KOUTON_GODONOU.pdf"
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-dark-card dark:bg-dark-card bg-light-card text-dark/80 dark:text-light/80 border border-dark-border dark:border-dark-border border-light-border text-sm font-semibold hover:border-primary/40 hover:text-primary dark:hover:text-primary-light transition-all duration-200 hover:-translate-y-0.5"
               >

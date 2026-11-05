@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, GraduationCap, Download, MapPin, Calendar } from 'lucide-react';
-import cvFile from '../Assets/Williams_KOUTON_GODONOU.pdf';
 import { useExperiences } from '../hooks/usePortfolioData';
 import { DbExperience } from '../types/admin';
 
@@ -365,7 +364,7 @@ const Parcours: React.FC = () => {
 
           {/* Download CV */}
           <a
-            href={cvFile}
+            href="/cv.pdf"
             download="CV_Williams_KOUTON_GODONOU.pdf"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-dark text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
           >
